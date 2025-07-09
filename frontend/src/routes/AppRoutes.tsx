@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Users from '../pages/Users';
+import Users from '../pages/Products';
 import Projects from '../pages/Projects';
 import Tasks from '../pages/Tasks';
 

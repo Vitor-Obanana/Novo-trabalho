@@ -42,10 +42,12 @@ const Home: React.FC = () => {
         </ol>
       </section>
 
+      {/* SEÇÃO DE BOTÕES */}
       <section style={{ textAlign: 'center', marginTop: '3rem' }}>
         <p style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#444' }}>
           Pronto para começar a explorar?
         </p>
+
         <Link to="/products">
           <button
             style={{
@@ -61,7 +63,7 @@ const Home: React.FC = () => {
             Ver Produtos
           </button>
         </Link>
-      
+
         <Link to="/courses">
           <button
             style={{
@@ -72,12 +74,31 @@ const Home: React.FC = () => {
               borderRadius: '8px',
               fontSize: '1rem',
               cursor: 'pointer',
+              marginLeft: '1rem',
             }}
           >
             Ver Cursos
           </button>
         </Link>
-</section>
+
+        <Link to="/materias">
+          <button
+            style={{
+              padding: '0.75rem 1.5rem',
+              backgroundColor: '#4f46e5',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '1rem',
+              cursor: 'pointer',
+              marginLeft: '1rem',
+            }}
+          >
+            Ver Matérias
+          </button>
+        </Link>
+      </section>
+
       <footer style={{ textAlign: 'center', marginTop: '4rem', fontSize: '0.9rem', color: '#aaa' }}>
         © {new Date().getFullYear()} CalouroShop - Todos os direitos reservados.
       </footer>
@@ -86,4 +107,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-

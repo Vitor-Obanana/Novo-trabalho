@@ -2,8 +2,11 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import productsRoutes from './routes/productsRoutes';
 import coursesRoutes from './routes/Courses.Routes'; // Certifique-se que esse nome do arquivo esteja certo
+import { materiaRoutes } from './routes/materia';
 
 const app = Fastify(); // Criar o app Fastify
+
+
 
 // Configurar CORS
 app.register(cors, {
@@ -21,6 +24,9 @@ app.register(productsRoutes, { prefix: '/products' });
 
 // 👉 AQUI TIREI O PREFIXO para evitar /courses/courses
 app.register(coursesRoutes);
+
+// Registrar rotas de matérias
+app.register(materiaRoutes);
 
 // Iniciar o servidor
 app.listen({ port: 3000, host: '0.0.0.0' }, (err, address) => {

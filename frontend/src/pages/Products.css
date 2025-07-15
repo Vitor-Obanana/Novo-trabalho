@@ -3,8 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 html, body {
@@ -23,6 +21,7 @@ html, body {
   padding-bottom: 80px;
   display: flex;
   flex-direction: column;
+  align-items: center; /* 🔥 Isso centraliza todo o conteúdo horizontalmente */
 }
 
 /* Cabeçalho clean */
@@ -33,6 +32,8 @@ html, body {
   padding: 2rem 4rem;
   background-color: transparent;
   border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+  max-width: 1000px; /* 🔥 Garante limite de largura centralizado */
 }
 
 .logo {
@@ -74,6 +75,7 @@ html, body {
   text-align: center;
   padding: 4rem 2rem;
   color: #222;
+  max-width: 1000px;
 }
 
 .hero h1 {
@@ -87,25 +89,28 @@ html, body {
   color: #555;
 }
 
-/* Container principal */
+/* Container principal CENTRALIZADO */
 .container {
   width: 100%;
-  max-width: 100%;
-  padding: 2rem 5vw;
+  max-width: 1000px; /* Limita a largura */
+  margin: 0 auto;     /* Centraliza horizontalmente */
+  padding: 2rem;
   background-color: white;
   border-radius: 0;
   box-shadow: none;
 }
 
 /* Formulário */
-.add-form {
+.add-form,
+.materia-form {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.add-form input {
+.add-form input,
+.materia-form input {
   flex: 1;
   padding: 0.8rem 1rem;
   border: 1px solid #ddd;
@@ -116,13 +121,15 @@ html, body {
   transition: all 0.3s ease;
 }
 
-.add-form input:focus {
+.add-form input:focus,
+.materia-form input:focus {
   outline: none;
   border-color: #999;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-.add-form button {
+.add-form button,
+.materia-form button {
   padding: 0.8rem 1.5rem;
   border: none;
   background-color: #111;
@@ -133,7 +140,8 @@ html, body {
   transition: background 0.3s ease;
 }
 
-.add-form button:hover {
+.add-form button:hover,
+.materia-form button:hover {
   background-color: #222;
 }
 
@@ -153,7 +161,8 @@ html, body {
 }
 
 /* Card refinado */
-.card {
+.card,
+.materia-list li {
   background-color: #fff;
   border: 1px solid #eee;
   border-radius: 18px;
@@ -162,7 +171,8 @@ html, body {
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 
-.card:hover {
+.card:hover,
+.materia-list li:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
@@ -196,13 +206,15 @@ html, body {
 }
 
 /* Ações */
-.card-actions {
+.card-actions,
+.actions {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
 }
 
-.card-actions button {
+.card-actions button,
+.actions button {
   background: none;
   border: none;
   color: #333;
@@ -212,7 +224,8 @@ html, body {
   transition: 0.2s;
 }
 
-.card-actions button:hover {
+.card-actions button:hover,
+.actions button:hover {
   color: #000;
   text-decoration: underline;
 }
@@ -234,3 +247,4 @@ html, body {
 .site-footer a:hover {
   color: #000;
 }
+

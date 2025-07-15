@@ -1,17 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Users from '../pages/Products';
-import Projects from '../pages/Projects';
-import Tasks from '../pages/Tasks';
+import Products from '../pages/Products';
+import Cursos from '../pages/Courses'; // ✅ Aqui está a correção
 
 const AppRoutes: React.FC = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/users" element={<Users />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/tasks" element={<Tasks />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/courses" element={<Cursos />} /> {/* ✅ Corrigido */}
     </Routes>
   </BrowserRouter>
 );
 
 export default AppRoutes;
+

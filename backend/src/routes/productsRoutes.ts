@@ -2,6 +2,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { db } from '../models/db';
 import { RowDataPacket, ResultSetHeader } from 'mysql2';
 
+
 interface Product {
   id?: number;
   name: string;
@@ -12,7 +13,7 @@ interface Product {
 }
 
 export default async function productsRoutes(fastify: FastifyInstance) {
-  // POST - Criar produto
+  // Criar produto
   fastify.post('/', async (request: FastifyRequest<{ Body: Product }>, reply: FastifyReply) => {
     const { name, description, price, stock, category_id } = request.body;
 
@@ -39,7 +40,7 @@ export default async function productsRoutes(fastify: FastifyInstance) {
     }
   });
 
-  // GET - Listar produtos com filtros
+  // Listar produtos com filtros
   fastify.get('/', async (request: FastifyRequest<{ Querystring: { category_id?: string; name?: string } }>, reply: FastifyReply) => {
     const { category_id, name } = request.query;
     let sql = 'SELECT * FROM products WHERE 1=1';
@@ -63,7 +64,7 @@ export default async function productsRoutes(fastify: FastifyInstance) {
     }
   });
 
-  // GET - Buscar por ID
+  // Buscar produto por ID
   fastify.get('/:id', async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
     const id = Number(request.params.id);
     try {
@@ -80,7 +81,7 @@ export default async function productsRoutes(fastify: FastifyInstance) {
     }
   });
 
-  // PUT - Atualizar produto
+  // Atualizar produto
   fastify.put('/:id', async (request: FastifyRequest<{ Params: { id: string }, Body: Product }>, reply: FastifyReply) => {
     const id = Number(request.params.id);
     const { name, description, price, stock, category_id } = request.body;
@@ -108,7 +109,7 @@ export default async function productsRoutes(fastify: FastifyInstance) {
     }
   });
 
-  // DELETE - Remover produto
+  // Deletar produto
   fastify.delete('/:id', async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
     const id = Number(request.params.id);
 
@@ -126,4 +127,5 @@ export default async function productsRoutes(fastify: FastifyInstance) {
     }
   });
 }
+
 

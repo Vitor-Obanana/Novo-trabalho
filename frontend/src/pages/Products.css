@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 html, body {
@@ -17,7 +19,10 @@ html, body {
               url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80') no-repeat center center;
   background-size: cover;
   min-height: 100vh;
+  width: 100%;
   padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Cabeçalho clean */
@@ -84,12 +89,12 @@ html, body {
 
 /* Container principal */
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  padding: 2rem 5vw;
   background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.03);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Formulário */
@@ -106,7 +111,15 @@ html, body {
   border: 1px solid #ddd;
   border-radius: 12px;
   font-size: 1rem;
-  background-color: #fafafa;
+  background-color: #fff;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.add-form input:focus {
+  outline: none;
+  border-color: #999;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .add-form button {
@@ -117,6 +130,7 @@ html, body {
   border-radius: 12px;
   font-weight: 500;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .add-form button:hover {
@@ -177,6 +191,8 @@ html, body {
   border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  background-color: #fff;
+  color: #111;
 }
 
 /* Ações */
@@ -218,4 +234,3 @@ html, body {
 .site-footer a:hover {
   color: #000;
 }
-

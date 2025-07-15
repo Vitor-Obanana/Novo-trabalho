@@ -54,7 +54,7 @@ Durante o processo, tentei implementar um filtro de busca por nome na rota de li
 A funcionalidade de cursos está funcionando corretamente com as principais operações do CRUD, formulários dinâmicos e interface visual intuitiva. A adição dos campos de vagas e mensalidade, bem como a estrutura de duração em meses, tornam o sistema mais completo.
 
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -107,3 +107,62 @@ quando ocorre algum erro interno no banco ou na aplicação.
 Esses tratamentos garantem que o sistema se comporte de forma mais estável e que as mensagens de erro sejam claras e compreensíveis para o usuário.
 Em resumo, a funcionalidade de produtos que desenvolvi está totalmente funcional e bem estruturada. O CRUD está completo, o filtro foi implementado com sucesso, o tratamento de erros está funcionando de forma amigável e todo o backend foi desenvolvido com boas práticas de codificação.
 Essa funcionalidade contribui diretamente para o bom funcionamento do sistema como um todo, permitindo um controle eficaz dos produtos cadastrados.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Relatório das tabelas mysql 
+Este relatório tem como objetivo explicar de forma simples como funciona o banco de dados market_db, que foi criado para organizar produtos e cursos, relacionando um produto com um curso como se o curso fosse a "categoria" do produto.
+Criação do banco
+Primeiro, foi criado o banco de dados com o seguinte comando:
+CREATE DATABASE IF NOT EXISTS market_db;
+USE market_db;
+
+Esses comandos garantem que o banco seja criado só se ainda não existir e ativam ele para os próximos comandos.
+Tabela de produtos
+Em seguida, criamos a tabela products para armazenar os produtos. Ela guarda o nome do produto, uma descrição, o preço, o estoque e a categoria (ligada ao curso):
+
+CREATE TABLE IF NOT EXISTS products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  description TEXT,
+  price DECIMAL(10,2) NOT NULL,
+  stock INT NOT NULL,
+  category_id INT,
+  CONSTRAINT fk_products_courses FOREIGN KEY (category_id) REFERENCES courses(id)
+);
+
+O campo category_id serve para ligar o produto a um curso, criando um relacionamento entre as tabelas.
+Tabela de cursos
+A tabela courses foi feita para armazenar os cursos. Cada curso tem um nome, um preço e uma quantidade de vagas (slots):
+
+CREATE TABLE courses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL,   
+  slots INT NOT NULL DEFAULT 1
+);
+
+Relacionamento entre produtos e cursos
+Para mostrar os produtos junto com os dados dos cursos ligados a eles, usamos o comando INNER JOIN. Assim, conseguimos ver as informações completas de cada produto com o nome do curso correspondente:
+
+SELECT
+  p.id AS product_id,
+  p.name AS product_name,
+  p.price AS product_price,
+  p.stock AS product_stock,
+  c.id AS course_id,
+  c.name AS course_name,
+  c.price AS course_price,
+  c.slots AS course_slots
+FROM products p
+INNER JOIN courses c ON p.category_id = c.id;
+
+Ver todos os dados das tabelas
+Também usamos os comandos abaixo para ver todos os dados das tabelas separadamente:
+
+SELECT * FROM products;
+SELECT * FROM courses;
+
+Conclusão
+Com essas tabelas e comandos, conseguimos montar um banco de dados simples, organizado e funcional. Os produtos ficam ligados aos cursos por meio de uma chave estrangeira, e é possível visualizar todas essas ligações com um JOIN. Isso ajuda bastante na organização dos dados e facilita futuras consultas.

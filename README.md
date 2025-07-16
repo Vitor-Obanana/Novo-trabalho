@@ -1,3 +1,36 @@
+Nome: Bianca Santos de Paula 1023B
+
+No meu projeto, desenvolvi a funcionalidade de matérias, que permite cadastrar, listar, editar e excluir informações sobre disciplinas. Essa funcionalidade foi feita com Node.js + Fastify no backend e React com TypeScript no frontend, usando o MySQL como banco de dados.
+No MySQL, criei a tabela materias com os seguintes campos:
+
+id: identificador da matéria (chave primária)
+nome: nome da matéria
+carga_horaria: duração da matéria em horas
+descricao: um texto curto explicando a matéria
+
+Esses dados são o suficiente pra descrever bem cada matéria cadastrada no sistema.
+
+No backend, criei as rotas para fazer todo o CRUD:
+
+GET /materia → lista todas as matérias
+POST /materia → cadastra uma nova matéria
+PUT /materia/:id → atualiza os dados de uma matéria
+DELETE /materia/:id → exclui uma matéria
+
+As rotas usam SQL direto com o pacote mysql2/promise, o que deixou o código simples e direto. 
+No frontend, criei um componente chamado Materia que faz tudo:
+
+Tem um formulário pra cadastrar novas matérias com nome, carga horária e descrição;
+Mostra uma lista de matérias em cards, com os dados principais;
+Dá pra editar direto no card, com campos que aparecem ao clicar no lapis;
+Também tem botão de excluir, com confirmação;
+
+Tudo com mensagens de erro e sucesso, pra deixar claro pro usuário o que aconteceu.
+
+Além disso, criei páginas separadas para editar e excluir matérias.
+A funcionalidade de matérias está funcionando direitinho. Dá pra fazer tudo que um CRUD precisa e a interface ficou simples de usar. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Nome: Maria Eduarda da Silva Barbosa 1023 B 
 
 Funcionalidade: Cadastro/Listagem/Atualizar/Delete dos Cursos.
